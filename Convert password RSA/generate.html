@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Key</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<style>
+      *{
+        margin:0;
+        padding: 0;
+        box-sizing: border-box;
+      }  
+      body{
+        background-color: black;
+        height: 100vh;
+      }
+      marquee{
+        font-size: 30px;
+      }
+      .body{
+        margin: 0 auto;
+        width: 500px;
+        height: 300px;
+        text-align: center;
+        border-radius: 20px;
+        background-color: white;
+      }
+      .title{
+        margin:20px 0;
+        font-size: 30px;
+      }
+      input{
+        width:350px;
+        height: 35px;
+        border-radius: 20px;
+        outline: none;
+        padding-left: 20px;
+        color: black;
+        margin: 5px 0;
+        font-size: 15px;
+        background: none;
+        border: 3px solid black;
+      }
+      ::placeholder{
+        color: black;
+      }
+      button{
+        width: 70px;
+        height: 30px;
+        color: black;
+        border-radius: 20px;
+        background-color: white;
+        border: 3px solid black;
+      }
+      button:hover{
+        color: white;
+        background-color: black;
+        transition: all 1s;
+      }
+      .body h1{
+        padding-left: 20px;
+        text-align: left;
+      }
+      @media (max-width:600px){
+        .body{
+            width:400px;
+        }
+        h1{
+            font-size: 30px;
+        }
+      }
+      @media (max-width:450px){
+        .body{
+            width:300px;
+        }
+        input{
+            width:250px;
+        }
+        h1{
+            font-size: 23px;
+        }
+      }
+</style>
+<body>
+    <marquee behavior="alternate" style="color: white;">Generate Keyword</marquee>
+    <h1 ><a href="index.html"><i class='bx bx-arrow-back' style="color: white; border-radius: 50%;border: 3px solid white; padding:5px 5px 5px 5px; margin: 5px 20px;"></i></a></h1>
+    <div class="body">
+        <h2 class="title"><i><u>Generate Keyword</u></i></h2>
+        <input type="text" placeholder="Input p" id="p"><br>
+        <input type="text" placeholder="Input q" id="q"><br>
+        <button onclick="ok()">Submit</button>  
+        <h1 id="public"></h1> 
+        <h1 id="private"></h1>
+        <h2 id="alert"></h2>
+    </div>
+    <script>
+        function ok(){
+            document.getElementById("alert").innerHTML="";
+            document.getElementById("public").innerHTML="";
+            document.getElementById("private").innerHTML="";
+            p=document.getElementById("p").value;
+            q=document.getElementById("q").value;
+            if(p==""&&q==""){
+                document.getElementById("alert").innerHTML="Error! Please try again";
+            }else{ 
+              let k=1;
+              let j=1;
+              for(b=2;b<p;b++){
+                if(p%b==0){
+                  k=0;
+                }
+              }
+              for(c=2;c<q;c++){
+                if(q%c==0){
+                  j=0;
+                }
+              }
+              if(k==0){
+                document.getElementById("alert").innerHTML="Please Input Prime Number";
+              }else if(j==0){
+                document.getElementById("alert").innerHTML="Please Input Prime Number";
+              }else{
+                let n = p*q;
+                let T = (p-1)*(q-1);
+                for(let i=1;i<=5;i++){
+                    if(i%T!=0){
+                        var e = i;
+                    }
+                }
+                document.getElementById("public").innerHTML="Public Key(n , e) = ("+n+" , "+e+")";
+                num = Math.trunc(e/(T%e));
+                let i=0;
+                for(let d=0;d<=10000000;d++){
+                  if((e*d)-(T*num)==1){
+                    i=1;
+                    document.getElementById("private").innerHTML="Private Key d ="+d;
+                  }
+                }
+                if(i==0){
+                  document.getElementById("alert").innerHTML="no";
+                }
+                let j=0;
+                var step2=document.getElementById("alert").innerHTML;
+                if(step2=="no"){
+                  num1 = Math.trunc(e%(T%e));
+                  for(let d=0;d<=10000000;d++){
+                  if((T-(e*d)-num1)==1){
+                    j=1;
+                    document.getElementById("private").innerHTML="Private Key d ="+d;
+                  }
+                }
+                document.getElementById("alert").innerHTML="";
+                if(j==0){
+                  document.getElementById("alert").innerHTML="Error step2!";
+                }
+                }
+               
+              }
+            }
+            
+            
+        }
+    </script>
+</body>
+</html>

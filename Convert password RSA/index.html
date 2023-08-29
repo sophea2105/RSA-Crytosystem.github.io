@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSA Crytosystem</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<style>
+    *{
+        margin:0;
+        padding: 0;
+        box-sizing: border-box;
+      }  
+      body{
+        background-color: black;
+        height: 100vh;
+      }
+      marquee{
+        font-size: 30px;
+      }
+      fieldset{
+        margin: 0 auto;
+        width:800px;
+        border-radius: 20px;
+        text-align: center;
+        border: 3px solid white;
+      }
+      .image{
+        display: flex;
+        justify-content: space-between;
+      }
+      img{
+        width:150px;
+      }
+      .text{
+        display: none;
+      }
+      img:hover .text{
+        display: block;
+      }
+      .generate{
+        width: 500px;
+      }
+      @media (max-width: 850px){
+        fieldset{
+          width: 750px;
+        }
+      }
+      @media (max-width: 775px){
+        fieldset{
+          width: 600px;
+        }
+      }
+      @media (max-width: 650px){
+        fieldset{
+          width: 300px;
+        }
+        .image{
+          display: block;
+      }
+      }
+</style>
+<body>
+    <marquee behavior="alternate" style="color: white;">RSA Crytosystem</marquee>
+    <br><br>
+    <fieldset>
+        <legend style="color: white;"><h1>RSA Crytosystem</h1></legend>
+        <div class="image">
+          <br><br>
+            <a href="encrypt.html">
+                <div class="encrypt">
+                    <img src="https://lh3.googleusercontent.com/Q7LjQa0Gq1lVYZGh0b5lwEewF090Zcnl9oyI7wIuS585VXek4BZMB7mHum26Kq7PU0xYn2rk2CDWswc2R6ynUSPUqWJC12GtFeOcXNWu5H35ueDfF3IcVfTf5U4GGBBYBDlCbyJT1y3E1B73iKJOSLxAsh2CO48p7e3wWiG052oyrpYnwHZt8y8ev-U6nQ">
+                    <h2 style="color: white;" class="text">Encrypt</h2>
+                </div>
+            </a>
+            <a href="decrypt.html">
+                <img src="image/decrypt.png">
+            </a>
+            <a href="generate.html">
+                <div>
+                    <img src="image/generate.png"  class="Generate">
+                </div>
+            </a>
+            
+        </div>
+    </fieldset>
+    
+</body>
+</html>

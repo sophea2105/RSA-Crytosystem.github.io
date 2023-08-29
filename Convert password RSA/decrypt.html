@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decrypt Password</title>
+    <script src="js.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<style>
+    *{
+        margin:0;
+        padding: 0;
+        box-sizing: border-box;
+      }  
+      body{
+        background-color: black;
+        height: 100vh;
+      }
+      marquee{
+        font-size: 30px;
+      }
+      .body{
+        margin: 0 auto;
+        width: 500px;
+        height: 300px;
+        text-align: center;
+        border-radius: 20px;
+        background-color: white;
+      }
+      input{
+        width:350px;
+        height: 35px;
+        border-radius: 20px;
+        outline: none;
+        padding-left: 20px;
+        color: black;
+        margin: 5px 0;
+        font-size: 15px;
+        background: none;
+        border: 3px solid black;
+      }
+      ::placeholder{
+        color: black;
+      }
+      button{
+        width: 70px;
+        height: 30px;
+        color: black;
+        border-radius: 20px;
+        background-color: white;
+        border: 3px solid black;
+      }
+      button:hover{
+        color: white;
+        background-color: black;
+        transition: all 1s;
+      }
+      @media (max-width:600px){
+        .body{
+            width:400px;
+        }
+        h1{
+            font-size: 30px;
+        }
+      }
+      @media (max-width:450px){
+        .body{
+            width:300px;
+        }
+        input{
+            width:250px;
+        }
+        h1{
+            font-size: 23px;
+        }
+      }
+</style>
+<body>
+    <marquee behavior="alternate" style="color: white;">Decrypt Password</marquee>
+    <h1 ><a href="index.html"><i class='bx bx-arrow-back' style="color: white; border-radius: 50%;border: 3px solid white; padding:5px 5px 5px 5px; margin: 5px 20px;"></i></a></h1>
+    <div class="body">
+        <h1>Decrypt</h1>
+    <input type="text" id="code" placeholder="Code"><br>
+    <input type="text" id="d" placeholder="Keyword"><br>
+    <button onclick="convert1()">Convert</button>
+    <h1 id="results"  style="display: none;"></h1>
+    <h1 id="results1"></h1>
+    </div>
+</body>
+</html>
